@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AllSetDining - Your trusted editorial source for fashion, beauty, home, travel, finance, and culinary excellence. Discover expert reviews, product recommendations, and inspiring content.">
+    <meta name="keywords" content="fashion, beauty, home design, travel, finance, food, lifestyle, product reviews, editorial magazine">
+    <meta name="author" content="AllSetDining">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://allsetdining.com/">
+    <meta property="og:title" content="AllSetDining - Editorial Magazine">
+    <meta property="og:description" content="Your trusted editorial source for fashion, beauty, home, travel, finance, and culinary excellence.">
+    <meta property="og:image" content="https://allsetdining.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://allsetdining.com/">
+    <meta property="twitter:title" content="AllSetDining - Editorial Magazine">
+    <meta property="twitter:description" content="Your trusted editorial source for fashion, beauty, home, travel, finance, and culinary excellence.">
+    <meta property="twitter:image" content="https://allsetdining.com/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+    
+    <title>AllSetDining - Editorial Magazine</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo">
+                    <h1>ALLSETDINING</h1>
+                    <p class="tagline">Editorial Excellence in Every Story</p>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="search.html">Search</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="header-categories">
+            <div class="container">
+                <ul class="category-nav">
+                    <li><a href="#" data-category="all" class="active">All</a></li>
+                    <li><a href="#" data-category="fashion">Fashion & Accessories</a></li>
+                    <li><a href="#" data-category="beauty">Health & Beauty</a></li>
+                    <li><a href="#" data-category="home">Home & Garden</a></li>
+                    <li><a href="#" data-category="travel">Travel & Accommodation</a></li>
+                    <li><a href="#" data-category="finance">Finance & Insurance</a></li>
+                    <li><a href="#" data-category="food">Food & Beverage</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-bar">
+        <div class="container">
+            <form id="searchForm" action="search.html" method="get" style="display: flex; gap: 15px;">
+                <input type="text" id="searchInput" name="q" placeholder="Search articles...">
+                <button type="submit" id="searchBtn"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="featured-section">
+                <h2 class="section-title">Featured Stories</h2>
+            </div>
+
+            <div class="articles-grid" id="articlesGrid">
+                <!-- Article 1 -->
+                <article class="article-card" data-category="fashion" data-date="2025-01-15">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=600&fit=crop" alt="Sustainable Fashion Trends" loading="lazy">
+                        <span class="category-badge">Fashion & Accessories</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="date">January 15, 2025</span>
+                            <span class="read-time">8 min read</span>
+                        </div>
+                        <h3 class="article-title">The Rise of Sustainable Fashion: Top Eco-Friendly Brands to Watch in 2025</h3>
+                        <p class="article-excerpt">Discover the revolutionary brands transforming the fashion industry with sustainable practices, ethical sourcing, and timeless designs that don't compromise on style.</p>
+                        <a href="article-1.html" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article-card" data-category="beauty" data-date="2025-03-22">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&h=600&fit=crop" alt="Skincare Routine" loading="lazy">
+                        <span class="category-badge">Health & Beauty</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="date">March 22, 2025</span>
+                            <span class="read-time">10 min read</span>
+                        </div>
+                        <h3 class="article-title">Complete Guide to Building Your Perfect Skincare Routine: Products That Actually Work</h3>
+                        <p class="article-excerpt">A dermatologist-approved approach to skincare featuring product recommendations, ingredient breakdowns, and proven routines for every skin type.</p>
+                        <a href="article-2.html" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="article-card" data-category="home" data-date="2025-05-10">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&h=600&fit=crop" alt="Modern Home Garden" loading="lazy">
+                        <span class="category-badge">Home & Garden</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="date">May 10, 2025</span>
+                            <span class="read-time">7 min read</span>
+                        </div>
+                        <h3 class="article-title">Transform Your Outdoor Space: Essential Tools and Design Ideas for Modern Gardens</h3>
+                        <p class="article-excerpt">Expert tips on creating stunning outdoor spaces with the right equipment, plants, and design principles that elevate your home's aesthetic.</p>
+                        <a href="article-3.html" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="article-card" data-category="travel" data-date="2025-06-28">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop" alt="Luxury Hotel" loading="lazy">
+                        <span class="category-badge">Travel & Accommodation</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="date">June 28, 2025</span>
+                            <span class="read-time">9 min read</span>
+                        </div>
+                        <h3 class="article-title">Hidden Gems: Boutique Hotels That Redefine Luxury Travel Experience</h3>
+                        <p class="article-excerpt">Explore curated selections of unique boutique hotels around the world that offer personalized service and unforgettable stays beyond traditional luxury.</p>
+                        <a href="article-4.html" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="article-card" data-category="food" data-date="2025-08-14">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop" alt="Gourmet Dining" loading="lazy">
+                        <span class="category-badge">Food & Beverage</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="date">August 14, 2025</span>
+                            <span class="read-time">11 min read</span>
+                        </div>
+                        <h3 class="article-title">Culinary Excellence at Home: Premium Kitchen Equipment Every Food Enthusiast Needs</h3>
+                        <p class="article-excerpt">From professional-grade knives to innovative cooking appliances, discover the essential tools that elevate your culinary creations to restaurant quality.</p>
+                        <a href="article-5.html" class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </main>
+
+    <aside class="sidebar-widget">
+        <div class="social-widget">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.pinterest.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.linkedin.com/company/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ALLSETDINING</h3>
+                    <p>Your trusted source for editorial content across fashion, beauty, home, travel, finance, and culinary excellence.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#" data-category="fashion">Fashion</a></li>
+                        <li><a href="#" data-category="beauty">Beauty</a></li>
+                        <li><a href="#" data-category="home">Home</a></li>
+                        <li><a href="#" data-category="travel">Travel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AllSetDining. All rights reserved. | <a href="privacy.html" style="color: inherit; text-decoration: underline;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

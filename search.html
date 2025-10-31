@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search AllSetDining articles across fashion, beauty, home, travel, finance, and food. Find expert reviews, product recommendations, and inspiring content.">
+    <meta name="keywords" content="search articles, find content, fashion search, beauty search, lifestyle articles">
+    <meta name="author" content="AllSetDining">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://allsetdining.com/search.html">
+    <meta property="og:title" content="Search - AllSetDining">
+    <meta property="og:description" content="Search AllSetDining articles across all categories.">
+    <meta property="og:image" content="https://allsetdining.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://allsetdining.com/search.html">
+    <meta property="twitter:title" content="Search - AllSetDining">
+    <meta property="twitter:description" content="Search AllSetDining articles across all categories.">
+    <meta property="twitter:image" content="https://allsetdining.com/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+    
+    <title>Search - AllSetDining</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .search-hero {
+            background: linear-gradient(135deg, rgba(26, 37, 47, 0.95), rgba(44, 62, 80, 0.95)), 
+                        url('https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=1600&h=600&fit=crop') center/cover;
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .search-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .search-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 40px;
+        }
+
+        .hero-search-box {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        .hero-search-box input {
+            flex: 1;
+            padding: 20px 30px;
+            font-size: 1.2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            outline: none;
+            transition: var(--transition-fast);
+            font-family: var(--font-body);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .hero-search-box input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 20px rgba(52, 152, 219, 0.3);
+            background: white;
+        }
+
+        .hero-search-box button {
+            padding: 20px 45px;
+            background: linear-gradient(135deg, var(--accent-color), var(--light-blue));
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .hero-search-box button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .search-content {
+            padding: 60px 0;
+            min-height: 60vh;
+        }
+
+        .search-filters {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .search-filters h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 2px solid var(--cool-gray);
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 0.95rem;
+            border-radius: 25px;
+            transition: var(--transition-fast);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--accent-color), var(--light-blue));
+            color: var(--white);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .search-results-header {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .search-results-header h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .results-count {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .results-count strong {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .search-keyword {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .search-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 40px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition-smooth);
+            animation: fadeInUp 0.6s ease;
+            animation-fill-mode: both;
+            opacity: 0;
+        }
+
+        .result-card.show {
+            opacity: 1;
+        }
+
+        .result-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .result-image {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .result-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .result-card:hover .result-image img {
+            transform: scale(1.1);
+        }
+
+        .result-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, var(--accent-color), var(--light-blue));
+            color: white;
+            padding: 6px 15px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .result-content {
+            padding: 25px;
+        }
+
+        .result-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .result-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+            transition: var(--transition-fast);
+        }
+
+        .result-card:hover .result-title {
+            color: var(--accent-color);
+        }
+
+        .result-excerpt {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .result-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
+        }
+
+        .result-link:hover {
+            gap: 12px;
+            color: var(--light-blue);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 80px 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .no-results i {
+            font-size: 5rem;
+            color: var(--cool-gray);
+            margin-bottom: 30px;
+        }
+
+        .no-results h3 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .no-results .suggestions {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .no-results .suggestions h4 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .no-results .suggestions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .no-results .suggestions li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .no-results .suggestions li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .popular-searches {
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: 12px;
+            margin-top: 60px;
+        }
+
+        .popular-searches h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .popular-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .popular-tag {
+            background: white;
+            color: var(--primary-color);
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition-smooth);
+            border: 2px solid transparent;
+        }
+
+        .popular-tag:hover {
+            background: linear-gradient(135deg, var(--accent-color), var(--light-blue));
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        @media (max-width: 992px) {
+            .search-results {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-search-box {
+                flex-direction: column;
+            }
+
+            .hero-search-box button {
+                width: 100%;
+            }
+
+            .search-results {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo">
+                    <h1>ALLSETDINING</h1>
+                    <p class="tagline">Editorial Excellence in Every Story</p>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-hero">
+        <div class="container">
+            <h1>Search Articles</h1>
+            <p>Discover content across fashion, beauty, home, travel, and culinary excellence</p>
+            <div class="hero-search-box">
+                <input type="text" id="searchInput" placeholder="Search articles, topics, or keywords...">
+                <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="search-content">
+        <div class="container">
+            <div class="search-filters">
+                <h3>Filter by Category</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">All Categories</button>
+                    <button class="filter-btn" data-category="fashion">Fashion</button>
+                    <button class="filter-btn" data-category="beauty">Beauty</button>
+                    <button class="filter-btn" data-category="home">Home & Garden</button>
+                    <button class="filter-btn" data-category="travel">Travel</button>
+                    <button class="filter-btn" data-category="finance">Finance</button>
+                    <button class="filter-btn" data-category="food">Food & Beverage</button>
+                </div>
+            </div>
+
+            <div class="search-results-header" id="resultsHeader">
+                <h2>All Articles</h2>
+                <p class="results-count">Showing <strong id="resultCount">5</strong> results</p>
+            </div>
+
+            <div class="search-results" id="searchResults">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+
+            <div class="popular-searches">
+                <h3>Popular Topics</h3>
+                <div class="popular-tags">
+                    <a href="#" class="popular-tag" data-search="sustainable fashion">Sustainable Fashion</a>
+                    <a href="#" class="popular-tag" data-search="skincare routine">Skincare Routine</a>
+                    <a href="#" class="popular-tag" data-search="garden design">Garden Design</a>
+                    <a href="#" class="popular-tag" data-search="boutique hotels">Boutique Hotels</a>
+                    <a href="#" class="popular-tag" data-search="kitchen equipment">Kitchen Equipment</a>
+                    <a href="#" class="popular-tag" data-search="luxury travel">Luxury Travel</a>
+                    <a href="#" class="popular-tag" data-search="eco-friendly">Eco-Friendly</a>
+                    <a href="#" class="popular-tag" data-search="product review">Product Reviews</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <aside class="sidebar-widget">
+        <div class="social-widget">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.pinterest.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.linkedin.com/company/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ALLSETDINING</h3>
+                    <p>Your trusted source for editorial content across fashion, beauty, home, travel, finance, and culinary excellence.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="search.html">Fashion</a></li>
+                        <li><a href="search.html">Beauty</a></li>
+                        <li><a href="search.html">Home</a></li>
+                        <li><a href="search.html">Travel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AllSetDining. All rights reserved. | <a href="privacy.html" style="color: inherit; text-decoration: underline;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Article data
+        const articles = [
+            {
+                id: 1,
+                title: 'The Rise of Sustainable Fashion: Top Eco-Friendly Brands to Watch in 2025',
+                excerpt: 'Discover the revolutionary brands transforming the fashion industry with sustainable practices, ethical sourcing, and timeless designs that don\'t compromise on style.',
+                category: 'fashion',
+                categoryName: 'Fashion & Accessories',
+                date: 'January 15, 2025',
+                readTime: '8 min read',
+                image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&h=600&fit=crop',
+                link: 'article-1.html',
+                keywords: ['sustainable', 'fashion', 'eco-friendly', 'ethical', 'brands', 'clothing', 'style']
+            },
+            {
+                id: 2,
+                title: 'Complete Guide to Building Your Perfect Skincare Routine: Products That Actually Work',
+                excerpt: 'A dermatologist-approved approach to skincare featuring product recommendations, ingredient breakdowns, and proven routines for every skin type.',
+                category: 'beauty',
+                categoryName: 'Health & Beauty',
+                date: 'March 22, 2025',
+                readTime: '10 min read',
+                image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&h=600&fit=crop',
+                link: 'article-2.html',
+                keywords: ['skincare', 'beauty', 'routine', 'products', 'dermatologist', 'skin', 'health']
+            },
+            {
+                id: 3,
+                title: 'Transform Your Outdoor Space: Essential Tools and Design Ideas for Modern Gardens',
+                excerpt: 'Expert tips on creating stunning outdoor spaces with the right equipment, plants, and design principles that elevate your home\'s aesthetic.',
+                category: 'home',
+                categoryName: 'Home & Garden',
+                date: 'May 10, 2025',
+                readTime: '7 min read',
+                image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&h=600&fit=crop',
+                link: 'article-3.html',
+                keywords: ['garden', 'landscaping', 'outdoor', 'home', 'design', 'plants', 'tools']
+            },
+            {
+                id: 4,
+                title: 'Hidden Gems: Boutique Hotels That Redefine Luxury Travel Experience',
+                excerpt: 'Explore curated selections of unique boutique hotels around the world that offer personalized service and unforgettable stays beyond traditional luxury.',
+                category: 'travel',
+                categoryName: 'Travel & Accommodation',
+                date: 'June 28, 2025',
+                readTime: '9 min read',
+                image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop',
+                link: 'article-4.html',
+                keywords: ['boutique', 'hotels', 'luxury', 'travel', 'accommodation', 'vacation', 'destination']
+            },
+            {
+                id: 5,
+                title: 'Culinary Excellence at Home: Premium Kitchen Equipment Every Food Enthusiast Needs',
+                excerpt: 'From professional-grade knives to innovative cooking appliances, discover the essential tools that elevate your culinary creations to restaurant quality.',
+                category: 'food',
+                categoryName: 'Food & Beverage',
+                date: 'August 14, 2025',
+                readTime: '11 min read',
+                image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop',
+                link: 'article-5.html',
+                keywords: ['kitchen', 'equipment', 'cooking', 'culinary', 'food', 'chef', 'tools', 'restaurant']
+            }
+        ];
+
+        let currentFilter = 'all';
+        let currentSearch = '';
+
+        // Display articles
+        function displayArticles(articlesToShow) {
+            const resultsContainer = document.getElementById('searchResults');
+            const resultCount = document.getElementById('resultCount');
+            const resultsHeader = document.getElementById('resultsHeader');
+            
+            resultCount.textContent = articlesToShow.length;
+
+            if (articlesToShow.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="no-results" style="grid-column: 1 / -1;">
+                        <i class="fas fa-search"></i>
+                        <h3>No Results Found</h3>
+                        <p>We couldn't find any articles matching "${currentSearch || 'your search'}"</p>
+                        <div class="suggestions">
+                            <h4>Search Tips:</h4>
+                            <ul>
+                                <li>Try different keywords or phrases</li>
+                                <li>Check your spelling</li>
+                                <li>Use more general terms</li>
+                                <li>Browse by category using the filters above</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            // Update header text
+            if (currentSearch) {
+                resultsHeader.querySelector('h2').innerHTML = `Search Results for "<span class="search-keyword">${currentSearch}</span>"`;
+            } else if (currentFilter !== 'all') {
+                const filterBtn = document.querySelector(`.filter-btn[data-category="${currentFilter}"]`);
+                resultsHeader.querySelector('h2').innerHTML = `${filterBtn.textContent} Articles`;
+            } else {
+                resultsHeader.querySelector('h2').textContent = 'All Articles';
+            }
+
+            resultsContainer.innerHTML = articlesToShow.map((article, index) => `
+                <div class="result-card" style="animation-delay: ${index * 0.1}s">
+                    <div class="result-image">
+                        <img src="${article.image}" alt="${article.title}">
+                        <span class="result-badge">${article.categoryName}</span>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-meta">
+                            <span><i class="far fa-calendar"></i> ${article.date}</span>
+                            <span><i class="far fa-clock"></i> ${article.readTime}</span>
+                        </div>
+                        <h3 class="result-title">${article.title}</h3>
+                        <p class="result-excerpt">${article.excerpt}</p>
+                        <a href="${article.link}" class="result-link">Read Full Story <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            `).join('');
+
+            // Trigger animation
+            setTimeout(() => {
+                document.querySelectorAll('.result-card').forEach(card => {
+                    card.classList.add('show');
+                });
+            }, 100);
+        }
+
+        // Filter and search logic
+        function filterArticles() {
+            let filtered = articles;
+
+            // Filter by category
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(article => article.category === currentFilter);
+            }
+
+            // Search by keyword
+            if (currentSearch) {
+                const searchLower = currentSearch.toLowerCase();
+                filtered = filtered.filter(article => {
+                    return article.title.toLowerCase().includes(searchLower) ||
+                           article.excerpt.toLowerCase().includes(searchLower) ||
+                           article.categoryName.toLowerCase().includes(searchLower) ||
+                           article.keywords.some(keyword => keyword.includes(searchLower));
+                });
+            }
+
+            displayArticles(filtered);
+        }
+
+        // Category filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.getAttribute('data-category');
+                filterArticles();
+            });
+        });
+
+        // Search functionality
+        function performSearch() {
+            currentSearch = document.getElementById('searchInput').value.trim();
+            filterArticles();
+            
+            // Scroll to results
+            document.getElementById('resultsHeader').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        document.getElementById('searchBtn').addEventListener('click', performSearch);
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Popular tags
+        document.querySelectorAll('.popular-tag').forEach(tag => {
+            tag.addEventListener('click', (e) => {
+                e.preventDefault();
+                const searchTerm = tag.getAttribute('data-search');
+                document.getElementById('searchInput').value = searchTerm;
+                performSearch();
+            });
+        });
+
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchQuery = urlParams.get('q');
+        const categoryQuery = urlParams.get('category');
+
+        // Set initial search/filter from URL
+        if (searchQuery) {
+            document.getElementById('searchInput').value = searchQuery;
+            currentSearch = searchQuery;
+        }
+
+        if (categoryQuery && categoryQuery !== 'all') {
+            currentFilter = categoryQuery;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-category') === categoryQuery) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Initial display
+        filterArticles();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+

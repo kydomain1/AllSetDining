@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about AllSetDining's mission to deliver exceptional editorial content across lifestyle, culture, and innovation. Discover our story, values, and commitment to excellence.">
+    <meta name="keywords" content="about us, editorial excellence, lifestyle magazine, content creators">
+    <meta name="author" content="AllSetDining">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://allsetdining.com/about.html">
+    <meta property="og:title" content="About - AllSetDining">
+    <meta property="og:description" content="Learn about AllSetDining's mission to deliver exceptional editorial content across lifestyle, culture, and innovation.">
+    <meta property="og:image" content="https://allsetdining.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://allsetdining.com/about.html">
+    <meta property="twitter:title" content="About - AllSetDining">
+    <meta property="twitter:description" content="Learn about AllSetDining's mission to deliver exceptional editorial content.">
+    <meta property="twitter:image" content="https://allsetdining.com/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+    
+    <title>About - AllSetDining</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, rgba(26, 37, 47, 0.9), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600&h=600&fit=crop') center/cover;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .about-hero h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .about-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .about-content {
+            padding: 80px 0;
+        }
+
+        .about-section {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .about-section h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .about-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), var(--light-blue));
+        }
+
+        .about-section p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition-smooth);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .team-section {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .categories-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .category-item {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .category-item:hover {
+            background: linear-gradient(135deg, var(--accent-color), var(--light-blue));
+            transform: scale(1.05);
+        }
+
+        .category-item i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .category-item h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo">
+                    <h1>ALLSETDINING</h1>
+                    <p class="tagline">Editorial Excellence in Every Story</p>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="search.html">Search</a></li>
+                        <li><a href="about.html" class="active">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="about-hero">
+        <div class="container">
+            <h1>About AllSetDining</h1>
+            <p>A premier editorial platform dedicated to delivering exceptional content across lifestyle, culture, and innovation.</p>
+        </div>
+    </div>
+
+    <main class="about-content">
+        <div class="container">
+            <div class="about-section">
+                <h2>Our Story</h2>
+                <p>
+                    AllSetDining was founded with a singular vision: to create a digital magazine that celebrates excellence across diverse lifestyle categories. We believe in the power of storytelling, quality journalism, and curated content that informs, inspires, and enriches the lives of our readers.
+                </p>
+                <p>
+                    Since our inception, we've grown into a trusted editorial voice, covering everything from fashion and beauty to travel, home design, finance, and culinary arts. Our team of experienced writers, editors, and industry experts work tirelessly to bring you comprehensive reviews, insightful analyses, and cutting-edge trends.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h2>Our Mission</h2>
+                <p>
+                    We strive to be your definitive source for making informed decisions in today's complex consumer landscape. Through rigorous research, expert opinions, and authentic product testing, we deliver content that matters—content that helps you discover the best products, services, and experiences across multiple industries.
+                </p>
+            </div>
+
+            <div class="about-section">
+                <h2>Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-award"></i></div>
+                        <h3>Excellence</h3>
+                        <p>We maintain the highest standards in every article, review, and recommendation we publish.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-check-circle"></i></div>
+                        <h3>Authenticity</h3>
+                        <p>Our reviews are honest, unbiased, and based on thorough research and real-world testing.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-users"></i></div>
+                        <h3>Community</h3>
+                        <p>We build connections with our readers and value your feedback and experiences.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Innovation</h3>
+                        <p>We stay ahead of trends, constantly evolving to bring you fresh perspectives.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h2>What We Cover</h2>
+                <p>
+                    Our editorial coverage spans six comprehensive categories, each managed by dedicated specialists who bring deep expertise and passion to their respective fields:
+                </p>
+                <div class="categories-showcase">
+                    <div class="category-item">
+                        <i class="fas fa-tshirt"></i>
+                        <h4>Fashion & Accessories</h4>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-spa"></i>
+                        <h4>Health & Beauty</h4>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-home"></i>
+                        <h4>Home & Garden</h4>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-plane"></i>
+                        <h4>Travel & Accommodation</h4>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Finance & Insurance</h4>
+                    </div>
+                    <div class="category-item">
+                        <i class="fas fa-utensils"></i>
+                        <h4>Food & Beverage</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h2>Join Our Journey</h2>
+                <p>
+                    Whether you're seeking the perfect accessory, planning your next adventure, renovating your home, or exploring culinary excellence, AllSetDining is here to guide you. We invite you to explore our content, engage with our community, and discover the extraordinary in everyday life.
+                </p>
+                <p>
+                    <a href="contact.html" class="read-more" style="font-size: 1.1rem; margin-top: 20px; display: inline-flex;">
+                        Get in Touch <i class="fas fa-arrow-right"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <aside class="sidebar-widget">
+        <div class="social-widget">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.pinterest.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-pinterest-p"></i></a>
+                <a href="https://www.linkedin.com/company/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ALLSETDINING</h3>
+                    <p>Your trusted source for editorial content across fashion, beauty, home, travel, finance, and culinary excellence.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="index.html">Fashion</a></li>
+                        <li><a href="index.html">Beauty</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html">Travel</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/allsetdining" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AllSetDining. All rights reserved. | <a href="privacy.html" style="color: inherit; text-decoration: underline;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

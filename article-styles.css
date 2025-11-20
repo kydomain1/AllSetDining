@@ -10,6 +10,9 @@
     height: 600px;
     overflow: hidden;
     position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .article-header-image img {
